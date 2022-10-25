@@ -17,9 +17,7 @@ public void lireEtiquette() {
  System.out.println("Bouteille de " + nom +" (" + degreAlcool +
  " degres) \nBrasserie : " + brasserie ) ;
 
-
-
-
+//la fonction lit l'étiquette
  
 }
 public BouteilleBiere(String unNom, double unDegre, String
@@ -28,6 +26,7 @@ uneBrasserie) {
  degreAlcool = unDegre;
  brasserie = uneBrasserie;
  ouverte = false;
+ //on note les informations de la bouteille biere
 }
 public boolean Decapsuler(){
     if(ouverte==false){
@@ -38,4 +37,17 @@ public boolean Decapsuler(){
     else{
         System.out.println("erreur, la bière est déja ouverte") ;
    return ouverte; 
+}       return false;
+}
+@Override
+//controle l'ouverture de la bière
+public String toString() {
+String chaine_a_retourner;
+//retourner la chaine avec les infos de la bière
+chaine_a_retourner = (nom + " (" + degreAlcool + " degrés) Ouverte ? ");
+if (ouverte == true ) chaine_a_retourner += "oui" ;
+else chaine_a_retourner += "non" ;
+return chaine_a_retourner ;
+} 
+   
 }
