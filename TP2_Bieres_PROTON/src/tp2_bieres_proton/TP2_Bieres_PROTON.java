@@ -17,10 +17,21 @@ public class TP2_Bieres_PROTON {
         // TODO code application logic here
         BouteilleBiere uneBiere = new BouteilleBiere("Cuvee des trolls",7.0,"Dubuisson") ;
         uneBiere.lireEtiquette();
+        //on lit l'étiquette
+        System.out.println(uneBiere);
         BouteilleBiere uneBiere2 = new BouteilleBiere("Chouffe",9.0,"MontBlanc") ;
         uneBiere2.lireEtiquette();
+        System.out.println(uneBiere2);
         BouteilleBiere uneBiere3 = new BouteilleBiere("Desperados",5.2,"mexicana") ;
         uneBiere3.lireEtiquette();
+        System.out.println(uneBiere3);
+        
+        boolean var;
+        
+        var=uneBiere.Decapsuler();
+        //on utilise la fonction pour décapsuler la biere
+        System.out.println(var);
+        System.out.println(uneBiere);
 }
     }
     
