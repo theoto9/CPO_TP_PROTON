@@ -54,8 +54,35 @@ public class TP3_heritage_Proton {
     TabPersonnage.add(magicien2);
     TabPersonnage.add(guerrier1);
     TabPersonnage.add(guerrier2);
+    
+    int taille2 = TabPersonnage.size(); // on récupère la taille  (ici 3)
+    int longueur2=taille2-1;
+    for (int i2=0; i<longueur2; i++){
+    System.out.println(Tabarme.get(i)+","); 
    }
-    System.out.println(Tabarme.get(taille-1)); 
+    guerrier guerrier3= new guerrier("hervé",56,false);
+    Baton Baton3= new Baton("bouleau",5,5);
+    magicien magicien3=new magicien ("Harry",55,true);
+    Baton Baton4=new Baton("cerisier",3,6);
+    Baton Baton5=new Baton("sequoia",4,4);
+    epee epee3= new epee("sabre",5,8);
+    epee epee4= new epee("fleuret",8,8);
+    epee epee5= new epee("Arthur",10,3);
 
+    guerrier3.ajouter_arme(Baton1);
+    guerrier3.ajouter_arme(epee2);
+    guerrier3.ajouter_arme(epee4);
+    
+    magicien3.ajouter_arme(Baton2);
+    magicien3.ajouter_arme(epee4);
+    magicien3.ajouter_arme(epee1);
+    
+    
+    
+System.out.println(Tabarme.get(taille-1)); 
+System.out.println(TabPersonnage.get(taille-1)); 
+    
     }
+    }
+    
 }
