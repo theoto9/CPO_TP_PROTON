@@ -24,7 +24,7 @@ public class FenetreDeJeu extends javax.swing.JFrame {
         initComponents();
         panneau_creation_partie.setVisible(false);
         panneau_infos_parties.setVisible(false);
-        initialiserPartie();
+        
 
         for (int i = 5; i >= 0; i--) {
             for (int j = 0; j < 7; j++) {
@@ -135,7 +135,7 @@ public class FenetreDeJeu extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        getContentPane().add(panneau_infos_joueurs, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 50, 250, 130));
+        getContentPane().add(panneau_infos_joueurs, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 50, 250, 140));
 
         panneau_creation_partie.setBackground(new java.awt.Color(204, 255, 204));
 
@@ -241,10 +241,10 @@ public class FenetreDeJeu extends javax.swing.JFrame {
                 .addGroup(panneau_creation_partieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
                     .addComponent(Jdes2))
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
-        getContentPane().add(panneau_creation_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 200, 250, 310));
+        getContentPane().add(panneau_creation_partie, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 200, 250, 280));
 
         panneau_infos_parties.setBackground(new java.awt.Color(204, 255, 204));
 
@@ -260,12 +260,11 @@ public class FenetreDeJeu extends javax.swing.JFrame {
         panneau_infos_partiesLayout.setHorizontalGroup(
             panneau_infos_partiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panneau_infos_partiesLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel16)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(panneau_infos_partiesLayout.createSequentialGroup()
                 .addContainerGap(20, Short.MAX_VALUE)
                 .addGroup(panneau_infos_partiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panneau_infos_partiesLayout.createSequentialGroup()
+                        .addComponent(jLabel16)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(panneau_infos_partiesLayout.createSequentialGroup()
                         .addComponent(textArea1, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(32, Short.MAX_VALUE))
@@ -284,12 +283,12 @@ public class FenetreDeJeu extends javax.swing.JFrame {
                 .addGroup(panneau_infos_partiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17)
                     .addComponent(jbl_jcourant))
-                .addGap(1, 1, 1)
-                .addComponent(textArea1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(11, 11, 11)
+                .addComponent(textArea1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        getContentPane().add(panneau_infos_parties, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 530, 250, 130));
+        getContentPane().add(panneau_infos_parties, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 490, 250, 150));
 
         btn_col_0.setText("1");
         btn_col_0.addActionListener(new java.awt.event.ActionListener() {
@@ -340,7 +339,8 @@ public class FenetreDeJeu extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_col_4ActionPerformed
 
     private void btn_col_0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_0ActionPerformed
-        // TODO add your handling code here:
+        JouerDansColonne(4);
+        joueurSuivant();        // TODO add your handling code here:
     }//GEN-LAST:event_btn_col_0ActionPerformed
 
     private void btn_col_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_1ActionPerformed
@@ -352,8 +352,13 @@ public class FenetreDeJeu extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_col_3ActionPerformed
 
     private void btn_startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_startActionPerformed
+
         panneau_creation_partie.setVisible(true);
         panneau_infos_parties.setVisible(true);
+        initialiserPartie();
+        panneau_grille.repaint();
+        btn_start.setEnabled(false);
+        
     }//GEN-LAST:event_btn_startActionPerformed
 
     /**
@@ -392,8 +397,7 @@ public class FenetreDeJeu extends javax.swing.JFrame {
     }
     
     public void initialiserPartie() {
-       //plateau.viderGrille(joueurCourant, joueurCourant);
-      
+       plateau.viderGrille(joueurCourant, joueurCourant);
        
         String nomJoueur1 = nom_joueur1.getText();
         Joueur J1 = new Joueur(nomJoueur1);
@@ -430,7 +434,7 @@ public class FenetreDeJeu extends javax.swing.JFrame {
             System.out.println("C'est au tour de "+ listeJoueurs[1]);
         }
         jbl_jcourant.setText(joueurCourant.nom);
-        
+         
          placerTrousNoirsEtDesintegrateurs();
         
     }
@@ -455,7 +459,9 @@ public void attribuerCouleurAuxJoueurs() {
        }
        else {
            joueurCourant = listeJoueurs[0];
-       }
+        jbl_jcourant.setText(joueurCourant.nom);
+       } 
+          
     }
     
     
@@ -520,6 +526,7 @@ public void attribuerCouleurAuxJoueurs() {
             }    
         }   
      }
+        
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Jcou1;
