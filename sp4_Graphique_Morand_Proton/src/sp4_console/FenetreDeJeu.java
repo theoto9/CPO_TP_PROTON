@@ -69,7 +69,7 @@ public class FenetreDeJeu extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jbl_jcourant = new javax.swing.JLabel();
-        textArea1 = new java.awt.TextArea();
+        res = new java.awt.TextArea();
         btn_col_0 = new javax.swing.JButton();
         btn_col_1 = new javax.swing.JButton();
         btn_col_2 = new javax.swing.JButton();
@@ -266,7 +266,7 @@ public class FenetreDeJeu extends javax.swing.JFrame {
                         .addComponent(jLabel16)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(panneau_infos_partiesLayout.createSequentialGroup()
-                        .addComponent(textArea1, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(res, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(32, Short.MAX_VALUE))
                     .addGroup(panneau_infos_partiesLayout.createSequentialGroup()
                         .addComponent(jLabel17)
@@ -284,7 +284,7 @@ public class FenetreDeJeu extends javax.swing.JFrame {
                     .addComponent(jLabel17)
                     .addComponent(jbl_jcourant))
                 .addGap(11, 11, 11)
-                .addComponent(textArea1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, Short.MAX_VALUE)
+                .addComponent(res, javax.swing.GroupLayout.PREFERRED_SIZE, 76, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -351,22 +351,36 @@ public class FenetreDeJeu extends javax.swing.JFrame {
 
     private void btn_col_4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_4ActionPerformed
         // TODO add your handling code here:
+        jouerDansColonne(4);
+        if(plateau.colonneRemplie(4)==true){
+            btn_col_4.setEnabled(false);
+        }
         joueurSuivant();
     }//GEN-LAST:event_btn_col_4ActionPerformed
 
     private void btn_col_0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_0ActionPerformed
                 // TODO add your handling code here:
         jouerDansColonne(0);
+        if (plateau.colonneRemplie(0) == true) {
+            btn_col_0.setEnabled(false);
+        }
         joueurSuivant();
+        
     }//GEN-LAST:event_btn_col_0ActionPerformed
 
     private void btn_col_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_1ActionPerformed
         jouerDansColonne(1);
+        if(plateau.colonneRemplie(1)==true){
+            btn_col_1.setEnabled(false);
+        }
         joueurSuivant();
     }//GEN-LAST:event_btn_col_1ActionPerformed
 
     private void btn_col_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_3ActionPerformed
         jouerDansColonne(3);
+        if(plateau.colonneRemplie(3)==true){
+            btn_col_3.setEnabled(false);
+        }
         joueurSuivant();
 // TODO add your handling code here:
     }//GEN-LAST:event_btn_col_3ActionPerformed
@@ -384,18 +398,28 @@ public class FenetreDeJeu extends javax.swing.JFrame {
 
     private void btn_col_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_2ActionPerformed
         jouerDansColonne(2);
+        if(plateau.colonneRemplie(2)==true){
+            btn_col_2.setEnabled(false);
+        }
         joueurSuivant();
+        
 // TODO add your handling code here:
     }//GEN-LAST:event_btn_col_2ActionPerformed
 
     private void btn_col_5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_5ActionPerformed
         jouerDansColonne(5);
+        if(plateau.colonneRemplie(5)==true){
+            btn_col_5.setEnabled(false);
+        }
         joueurSuivant();
 // TODO add your handling code here:
     }//GEN-LAST:event_btn_col_5ActionPerformed
 
     private void btn_col_6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_6ActionPerformed
         jouerDansColonne(6);
+        if(plateau.colonneRemplie(6)==true){
+            btn_col_6.setEnabled(false);
+        }
         joueurSuivant();
 // TODO add your handling code here:
     }//GEN-LAST:event_btn_col_6ActionPerformed
@@ -553,7 +577,7 @@ public void attribuerCouleurAuxJoueurs() {
     }
     
     
-        public void creerEtAffecterJeton(Joueur j1) {
+    public void creerEtAffecterJeton(Joueur j1) {
         if (j1.getCouleur() == "rouge") {
             for(int i=0; i < 30; i++ ) {
                 Jeton jet1 = new Jeton("rouge");
@@ -568,7 +592,7 @@ public void attribuerCouleurAuxJoueurs() {
         }   
      }
         
-        public boolean jouerDansColonne(int indice_colonne) {
+    public boolean jouerDansColonne(int indice_colonne) {
         boolean resultatAction;
 
         resultatAction = plateau.colonneRemplie(indice_colonne);
@@ -581,7 +605,7 @@ public void attribuerCouleurAuxJoueurs() {
         boolean vict_J1 = plateau.etreGagnantePourCouleur(listeJoueurs[0].getCouleur());
         boolean vict_J2 = plateau.etreGagnantePourCouleur(listeJoueurs[1].getCouleur());
         if (vict_J1 == true && vict_J2 == false) {
-            
+            res.setText("Victoire de " + listeJoueurs[0].nom );
             btn_col_0.setEnabled(false);
             btn_col_1.setEnabled(false);
             btn_col_2.setEnabled(false);
@@ -592,6 +616,7 @@ public void attribuerCouleurAuxJoueurs() {
             
         }
         if (vict_J1 == false && vict_J2 == true) {
+            res.setText("Victoire de " + listeJoueurs[1].nom );
             btn_col_0.setEnabled(false);
             btn_col_1.setEnabled(false);
             btn_col_2.setEnabled(false);
@@ -678,6 +703,6 @@ public void attribuerCouleurAuxJoueurs() {
     private javax.swing.JPanel panneau_grille;
     private javax.swing.JPanel panneau_infos_joueurs;
     private javax.swing.JPanel panneau_infos_parties;
-    private java.awt.TextArea textArea1;
+    private java.awt.TextArea res;
     // End of variables declaration//GEN-END:variables
 }

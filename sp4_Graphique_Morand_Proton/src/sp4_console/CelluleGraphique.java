@@ -12,7 +12,7 @@ import javax.swing.JButton;
  *
  * @author proto
  */
-public class CelluleGraphique extends JButton {
+public class CelluleGraphique extends JButton { //renom des images
 
     CelluleDeGrille celluleAssociee;
     ImageIcon img_vide = new javax.swing.ImageIcon(getClass().getResource("/images/celluleVide.png"));
