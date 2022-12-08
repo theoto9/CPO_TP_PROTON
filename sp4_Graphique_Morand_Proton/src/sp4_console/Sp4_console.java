@@ -1,0 +1,81 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package sp4_console;
+
+/**
+ *
+ * @author proto
+ */
+public class Sp4_console {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void dmain(String[] args) {
+     
+        
+// TODO code application logic here
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+
+   
+        
+    
+    /*
+        Jeton jet1 = new Jeton("jaune");
+        Jeton jet2 = new Jeton("rouge");
+        Joueur Johnny = new Joueur("Johnny","jaune");
+        
+        System.out.println(jet1);
+
+        
+        PlateauDeJeu plato = new PlateauDeJeu();
+       
+        plato.ajouterJetonDansColonne(jet2, 0);
+        plato.ajouterJetonDansColonne(jet1, 0);
+        plato.ajouterJetonDansColonne(jet2, 0);
+        plato.ajouterJetonDansColonne(jet2, 0);
+        plato.ajouterJetonDansColonne(jet2, 2);
+        plato.ajouterJetonDansColonne(jet1, 1);
+        plato.ajouterJetonDansColonne(jet2, 2);
+        plato.ajouterJetonDansColonne(jet2, 3);
+        plato.ajouterJetonDansColonne(jet2, 1);
+        plato.ajouterJetonDansColonne(jet2, 1);
+        
+        
+        plato.ajouterJetonDansColonne(jet2, 2);
+    
+        plato.afficherGrilleSurConsole();
+        
+        System.out.println(plato.grilleRemplie());
+        
+        System.out.println(plato.ligneGagnantePourCouleur("rouge"));
+        
+        System.out.println(plato.diagonaleDescendanteGagnantePourCouleur("rouge"));
+        System.out.println(plato.colonneGagnantePourCouleur("rouge")); 
+        
+        System.out.println(plato.etreGagnantePourCouleur("rouge"));
+        
+        Johnny.ajouterJeton(jet1);
+        
+        
+        
+        System.out.println(Johnny.jouerJeton());
+        
+        */
+        
+        
+     
+        
+        
+        
+        
+    }
+    
+    }
+    
+
